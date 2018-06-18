@@ -29,7 +29,7 @@ public class LoginController extends HttpServlet {
 		Customer c = customerDao.validateCustomer(login);
 		
 		if(submitType.equals("login") && c!=null && c.getName()!=null){
-			request.setAttribute("message", "Hello "+c.getName());
+			request.setAttribute("message1", "Hello "+c.getName());
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		}else if(submitType.equals("register")){
 			c.setName(request.getParameter("name"));
