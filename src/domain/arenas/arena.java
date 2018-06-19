@@ -29,11 +29,14 @@ public class arena {
 		rs = ps.executeQuery();
 		//status = ps.executeUpdate();
 		
-		str = "<table border =1><tr><td>Name</td><td>Location</td></tr>";
+		str = "<table border =1><tr><td>Name</td><td>Location</td><td>Book</td></tr>";
 		
 		while(rs.next())
 		{
-			str+= "<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td></tr>";
+			str+= "<tr><td>"+rs.getString(1)+"</td>"
+					+ "<td>"+rs.getString(2)+"</td>" 
+					+ "<td>"+"<button >Book Arena</button>"+"</td>"
+					+ "</tr>";
 		}
 		
 		str+= "</table>";
