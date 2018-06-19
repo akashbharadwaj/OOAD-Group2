@@ -1,6 +1,9 @@
 package domain.login;
-
+import domain.arenas.*;
+//package domain.arenas;
 import java.io.IOException;
+import java.sql.ResultSet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +30,11 @@ public class LoginController extends HttpServlet {
 		String submitType = request.getParameter("submit");
 		Login login = new Login(username, pass);
 		Customer c = customerDao.validateCustomer(login);
-		
+		arena a = new arena();
+		String rs = a.displayArenas();
 		if(submitType.equals("login") && c!=null && c.getName()!=null){
 			request.setAttribute("message1", "Hello "+c.getName());
+			request.setAttribute("arenas",rs);
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		}else if(submitType.equals("register")){
 			c.setName(request.getParameter("name"));
