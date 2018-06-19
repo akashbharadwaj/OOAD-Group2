@@ -12,7 +12,18 @@ user_type  char(1) null
 
 drop Table arenas;
 create table arenas (
-id	int not null,
+id	int not null AUTO_INCREMENT,
 name char(40) not null,
 location char(100)
 )
+insert into arenas 
+(name, location) values 
+('Soccer', 'Urec1'), 
+('Tennis', 'Urec2'), 
+('TT', 'Urec3'), 
+('Pool', Urec4), 
+('Racquetball', 'Urec5'),
+('Gym', 'Urec7'),
+('Squash', 'Urec8'),
+('SwimmingPool', 'Urec9'),
+('FIFA', 'Urec10');
