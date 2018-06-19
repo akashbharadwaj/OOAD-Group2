@@ -25,7 +25,7 @@ public class sendMail extends HttpServlet {
       // Get system properties
       Properties properties = System.getProperties();
       properties.setProperty("mail.user", "mgprathik27@gmail.com");
-      properties.setProperty("mail.password", "1qaz!QAZ");
+      properties.setProperty("mail.password", "");
  
       // Setup mail server
       properties.setProperty("mail.smtp.host", host);
