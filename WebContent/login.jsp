@@ -10,6 +10,7 @@
 <title>Login Page</title>
 </head>
 <body>
+<h1 style ="color:blue;margin-left:30px;text-align: center">UREC PLAY</h1>
 	<%out.print("Hello!"); %>
 	<%= new java.util.Date() %>
 	

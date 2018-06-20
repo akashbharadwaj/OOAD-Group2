@@ -7,6 +7,8 @@
 <title>Admin Page</title>
 </head>
 <body>
+<h1 style ="color:blue;margin-left:30px;text-align: center">UREC PLAY</h1>
+
 <a href="logout.jsp">logout</a>	
 
 	<br/>

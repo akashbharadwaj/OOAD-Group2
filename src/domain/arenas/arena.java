@@ -33,8 +33,8 @@ public class arena {
 		
 		while(rs.next())
 		{
-			str+= "<tr><td>"+rs.getString(1)+"</td>"
-					+ "<td>"+rs.getString(2)+"</td>" 
+			str+= "<tr><td>"+rs.getString(2)+"</td>"
+					+ "<td>"+rs.getString(3)+"</td>" 
 					+ "<td>"+"<button >Book Arena</button>"+"</td>"
 					+ "</tr>";
 		}

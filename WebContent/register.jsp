@@ -9,6 +9,8 @@
 
 </head>
 <body>
+<h1 style ="color:blue;margin-left:30px;text-align: center">UREC PLAY</h1>
+
 <form name="regform" action="LoginController" method="post" onsubmit="return regValidate()">
 	<br>${message}<br>
 	
@@ -26,6 +28,7 @@
 	<input type="reset" name="reset">
 	
 	</form>
+	<a href="login.jsp">LOGIN</a>
 	
 </body>
 </html>
