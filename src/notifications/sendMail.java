@@ -13,8 +13,8 @@ public class sendMail extends HttpServlet {
    public void send(String email, String message)
       throws ServletException, IOException {
       
-	   final String fromEmail = "foodrunnerorg@gmail.com"; //requires valid gmail id
-		final String password = "2wsx@WSX"; // correct password for gmail id
+	   final String fromEmail = "urec.utd@gmail.com"; //requires valid gmail id
+		final String password = "urecutdemail"; // correct password for gmail id
 		final String toEmail = email; // can be any email id 
 		
 		System.out.println("TLSEmail Start "+ message);
