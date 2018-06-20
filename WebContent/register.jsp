@@ -12,10 +12,11 @@
 <form name="regform" action="LoginController" method="post" onsubmit="return regValidate()">
 	<br>${message}<br>
 	
-	Username: <input type="text" name="username"> <br>
+	User Email: <input type="text" name="username"> <br>
 	<div id="username_error"></div><br>
 	Customer name: <input type="text" name="name"><br>
-	
+	Customer age: <input type="number" name="age"><br>
+	Customer gender: <input type="text" name="gender"><br>
 	Password: <input type="password" name="password" id="password"> 
 	<br>
 	Re-Type Password: <input type="password" name="retry-password" id="retry-password"> 

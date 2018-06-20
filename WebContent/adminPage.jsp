@@ -7,9 +7,7 @@
 <title>Admin Page</title>
 </head>
 <body>
-	<%out.print("Hello!"); %>
-	<%= new java.util.Date() %>
-	
+<a href="logout.jsp">logout</a>	
 
 	<br/>
 	<h1> ${message} !!! </h1>

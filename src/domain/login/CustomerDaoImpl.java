@@ -23,9 +23,9 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(1, c.getUsername());
 			ps.setString(2, c.getPassword());
 			ps.setString(3, c.getName());
-			ps.setString(4, "10");
-			ps.setString(5, "M");
-			ps.setString(6, "A");
+			ps.setString(4, c.getName());
+			ps.setString(5, c.getGender());
+			ps.setString(6, c.getUserType());
 			status = ps.executeUpdate();
 			conn.close();
 		}catch(Exception e){

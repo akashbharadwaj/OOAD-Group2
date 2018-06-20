@@ -2,6 +2,8 @@ package domain.login;
 import domain.arenas.*;
 import domain.user.*;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import db.DbManager;
+
 /**
  * Servlet implementation class Login
  */
@@ -17,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
+	static Connection conn;
+	static PreparedStatement ps;
+	DbManager db = new DbManager();
     public LoginController() {}
     
 	@Override
@@ -48,6 +54,23 @@ public class LoginController extends HttpServlet {
 			c.setName(request.getParameter("name"));
 			c.setUsername(request.getParameter("username"));
 			c.setPassword(request.getParameter("password"));
+			c.setAge(request.getParameter("age"));
+			c.setGender(request.getParameter("gender"));
+			c.setUserType(request.getParameter("O"));
+
+			try {
+			conn = db.getConnection();
+			ps = conn.prepareStatement("select * from customer where userId = ?");
+			ps.setString(1, c.getUsername());
+			
+			ResultSet rs1 = ps.executeQuery();
+			if(rs1.next()) {
+				request.setAttribute("successMessage", "User Already Registed. Please Log in");
+				request.getRequestDispatcher("login.jsp").forward(request, response);				
+				}
+			}catch(Exception e){
+				System.out.println(e);
+			}
 			customerDao.register(c);
 			request.setAttribute("successMessage", "Registration done, please login!");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
