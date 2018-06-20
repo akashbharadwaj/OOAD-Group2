@@ -10,66 +10,32 @@ import javax.activation.*;
  
 public class sendMail extends HttpServlet {
 
-   public void doGet(HttpServletRequest request, HttpServletResponse response)
+   public void send(String email, String message)
       throws ServletException, IOException {
       
-      // Recipient's email ID needs to be mentioned.
-      String to = "prathik.ganiga@utdallas.edu";
- 
-      // Sender's email ID needs to be mentioned
-      String from = "mgprathik27@gmail.com";
- 
-      // Assuming you are sending email from localhost
-      String host = "localhost";
- 
-      // Get system properties
-      Properties properties = System.getProperties();
-      properties.setProperty("mail.user", "mgprathik27@gmail.com");
-      properties.setProperty("mail.password", "");
- 
-      // Setup mail server
-      properties.setProperty("mail.smtp.host", host);
- 
-      // Get the default Session object.
-      Session session = Session.getDefaultInstance(properties);
-      
-      // Set response content type
-      response.setContentType("text/html");
-      PrintWriter out = response.getWriter();
-
-      try {
-         // Create a default MimeMessage object.
-         MimeMessage message = new MimeMessage(session);
-         
-         // Set From: header field of the header.
-         message.setFrom(new InternetAddress(from));
-         
-         // Set To: header field of the header.
-         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-         
-         // Set Subject: header field
-         message.setSubject("This is the Subject Line!");
-         
-         // Now set the actual message
-         message.setText("This is actual message");
-         
-         // Send message
-         Transport.send(message);
-         String title = "Send Email";
-         String res = "Sent message successfully....";
-         String docType =
-            "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
-         
-         out.println(docType +
-            "<html>\n" +
-               "<head><title>" + title + "</title></head>\n" +
-               "<body bgcolor = \"#f0f0f0\">\n" +
-                  "<h1 align = \"center\">" + title + "</h1>\n" +
-                  "<p align = \"center\">" + res + "</p>\n" +
-               "</body></html>"
-         );
-      } catch (MessagingException mex) {
-         mex.printStackTrace();
-      }
+	   final String fromEmail = "foodrunnerorg@gmail.com"; //requires valid gmail id
+		final String password = "2wsx@WSX"; // correct password for gmail id
+		final String toEmail = email; // can be any email id 
+		
+		System.out.println("TLSEmail Start "+ message);
+		Properties props = new Properties();
+		props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
+		props.put("mail.smtp.port", "587"); //TLS Port
+		props.put("mail.smtp.auth", "true"); //enable authentication
+		props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
+		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+               //create Authenticator object to pass in Session.getInstance argument
+		Authenticator auth = new Authenticator() {
+			//override the getPasswordAuthentication method
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(fromEmail, password);
+			}
+		};
+		Session session = Session.getInstance(props, auth);
+		String body = "Hello,\n" +
+	               "UREC Anouncement - " + message +"\n\n" +
+	               "Regards\n UREC Staff";
+		EmailUtil.sendEmail(session, toEmail,"UREC Anouncement", body);
+		return;
    }
 } 
