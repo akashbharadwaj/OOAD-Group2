@@ -28,7 +28,7 @@
 	<input type="reset" name="reset">
 	
 	</form>
-	<a href="login.jsp">LOGIN</a>
+	<a href="login.jsp">login</a>
 	
 </body>
 </html>
