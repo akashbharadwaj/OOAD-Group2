@@ -6,14 +6,15 @@
 <html>
 <head>
 <script type="text/javascript" src="script.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-4KIc2mnKfAA7VjirNLk2Sqp7jxFNq1q8+FhYGxhW2l52lt4HJsfksL+hjswHfbl/" crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login Page</title>
 </head>
 <body>
-<h1 style ="color:blue;margin-left:30px;text-align: center">UREC PLAY</h1>
-	<%out.print("Hello!"); %>
-	<%= new java.util.Date() %>
-	
+<h1 style ="color:black;margin-left:30px;text-align: center">UREC PLAY</h1>
+</br>
+</br>
+	<h3 style = "text-align: center"><%out.print("Hello!"); %></h3>
 	
 	<%! int number1, number2; %>
 	
@@ -23,22 +24,30 @@
 		if(conn == null)
 			out.print("failed");
 		else
-			out.print("succeeded");
+			//out.print("succeeded");
 	
 	%>
-	<br/>
 	
-	<form name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
+	
+	<form  class = "container" name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
 	<br>
 	${message}<br>
-	${successMessage}<br>
+	<div class="alert alert-dismissible alert-success container">
+    <strong>${successMessage}</strong> 
+	</div>
+	<br>
 	
+	<div class = "form-group">
+	User Email: <input class="form-control" type="text" name="username" id="username"><br>
 	
-	User Email: <input type="text" name="username" id="username"><br>
-	Password: <input type="password" name="password" id="password"><br>
-	<input type="submit" name="submit" value="login"><br>
-	<a href="register.jsp">registration</a>
+	</div>
+	<div class = "form-group">
+	Password: <input class="form-control" type="password" name="password" id="password"><br>
+	</div>
+	<input class="btn btn btn-success" type="submit" name="submit" value="login">
+	<a class="btn btn btn-success" href="register.jsp">registration</a>
 	
 	</form>
+	
 </body>
 </html>

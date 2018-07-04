@@ -29,7 +29,7 @@ public class arena {
 		rs = ps.executeQuery();
 		//status = ps.executeUpdate();
 		
-		str = "<table border =1 style = 'margin: 0 auto;'><tr><td>Name</td><td>Location</td><td>Book</td></tr>";
+		str = "<table  class=\"table table-hover\"><tr><td>Name</td><td>Location</td><td>Book</td></tr>";
 		
 		while(rs.next())
 		{
