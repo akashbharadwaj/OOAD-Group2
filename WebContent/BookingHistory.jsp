@@ -14,27 +14,23 @@
 <h1 style ="color:black;margin-left:30px;text-align: center">UREC PLAY</h1>
 
 <a class="btn btn btn-danger" href="logout.jsp">logout</a>
-<a class="btn btn btn-danger" href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&show=1">Booking</a>
-<h3 style="text-align:center"> ${message1} !!! </h3>
-<h3 align="center">Arenas to book</h3>
+<h3 style="text-align:center"> Booking History</h3>
 
    <table border=1 align="center" id="page">
         <thead>
             <tr>
                 <th>Arena ID</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Book</th>
+                <th>Arena Name</th>
+                <th>Slot</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${arenas}" var="arenas">
+            <c:forEach items="${bookings}" var="booking">
                 <tr>
-                    <td><c:out value="${arenas.arenaID}"/></td>
-                    <td><c:out value="${arenas.name}"/></td>
-                    <td><c:out value="${arenas.location}"/></td>
-                    <td><a href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Aid=<c:out value="${arenas.arenaID}"/>&show=0">Book</a></td>
-                </tr>
+                    <td><c:out value="${booking.arenaId}"/></td>
+                    <td><c:out value="${booking.arenaName}"/></td>
+                    <td><c:out value="${booking.slotTime}:00 - ${booking.slotTime+1}:00"/></td>
+				</tr>
             </c:forEach>
         </tbody>
     </table> 

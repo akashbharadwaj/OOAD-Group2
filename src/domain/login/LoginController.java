@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,14 +37,16 @@ public class LoginController extends HttpServlet {
 		String submitType = request.getParameter("submit");
 		Login login = new Login(username, pass);
 		Customer c = customerDao.validateCustomer(login);
-		arena a = new arena();
+		ArenaController a = new ArenaController();
 		admin adm =  new admin();
 		String rs = "";
+		List<Arena> arenas;
 
-		rs = a.displayArenas();
+		arenas = a.displayArenas();
 		if(submitType.equals("login") && c!=null && c.getName()!=null){
+			request.setAttribute("user",c.getUsername());
 			request.setAttribute("message1", "Hello "+c.getName());
-			request.setAttribute("arenas",rs);
+			request.setAttribute("arenas",arenas);
 			System.out.println(c.getUserType());
 			if(c.getUserType().equals("A")) {
 				request.setAttribute("message", "Welcome Admin");
