@@ -27,3 +27,10 @@ insert into arenas
 ('Squash', 'Urec8'),
 ('SwimmingPool', 'Urec9'),
 ('FIFA', 'Urec10');
+
+CREATE TABLE booking (
+userId char(100) ,
+arenaId int ,
+arenaName char(100),
+slotTime char(20) 
+)
