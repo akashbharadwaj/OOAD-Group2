@@ -16,14 +16,28 @@ public class Arena {
 		this.location = location;
 		
 	}
-	public int getarenaID() {
+	public Arena() {
+		// TODO Auto-generated constructor stub
+	}
+	public int getArenaID() {
 		return this.arenaID;
 	}
-	public String getname() {
+	public String getName() {
 		return this.name;
 	}
-	public String getlocation() {
+	public String getLocation() {
 		return this.location;
 	}
-
+	public void setArenaID(int arenaID) {
+		//return this.arenaID;
+		this.arenaID = arenaID;
+	}
+	public void setName(String name) {
+		//return this.name;
+		this.name = name;
+	}
+	public void setLocation(String location) {
+		//return this.location;
+		this.location = location;
+	}
 }

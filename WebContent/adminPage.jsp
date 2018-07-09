@@ -14,6 +14,35 @@
 
 	<br/>
 	<h3 style="text-align:center"> ${message} !!! </h3>
+	<h3 style="text-align:center"> ${successMessage} !!! </h3>
+	<h3 style="text-align:center"> Add Arena </h3>
+	<form class = "container" name="addArena" action="ArenaController" method="post"  >
+	<br>
+	<div class = "form-group">
+	Name: <input class="form-control" name="name" id="name"></input><br>
+	</div>
+	<div class = "form-group">
+	Location: <input class="form-control" name="location" id="location"></input><br>
+	</div>
+	<div class = "form-group">
+	<input class="btn btn btn-success" type="submit" name="submit" value="add"><br>
+	</div>
+
+	</form>
+	<form class = "container" name="deleteArena" action="ArenaController" method="post"  >
+	<br>
+	<div class = "form-group">
+	Name: <input class="form-control" name="name" id="name"></input><br>
+	</div>
+	<div class = "form-group">
+	Location: <input class="form-control" name="location" id="location"></input><br>
+	</div>
+	<div class = "form-group">
+	<input class="btn btn btn-success" type="submit" name="submit" value="delete"><br>
+	</div>
+
+	</form>
+	
 	<h3 style="text-align:center"> Send Notification </h3>
 	<form class = "container" name="pushmessage" action="admin" method="post"  >
 	<br>

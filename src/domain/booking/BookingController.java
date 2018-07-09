@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import db.DbManager;
-import domain.arenas.Arena;
-import domain.arenas.ArenaController;
+import domain.arenas.*;
+//import domain.arenas.ArenaController;
 
 /**
  * Servlet implementation class Login
@@ -28,7 +28,7 @@ public class BookingController extends HttpServlet {
 	static PreparedStatement ps;
 	DbManager db = new DbManager();
 	BookingDao bd = new BookingDao();
-	ArenaController a = new ArenaController();
+	ArenaDao a = new ArenaDaoImpl();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -40,13 +40,13 @@ public class BookingController extends HttpServlet {
 			request.getRequestDispatcher("BookingHistory.jsp").forward(request, response);
 
 		}else {
-		System.out.println(request.getParameter("Aid"));
-		List<Integer> li ;
-		li =bd.getAvailableSlots(Integer.parseInt(request.getParameter("Aid")));
-		request.setAttribute("li",li);
-		request.setAttribute("user", request.getParameter("Uid"));
-		request.setAttribute("arena", request.getParameter("Aid"));
-		request.getRequestDispatcher("BookingSlot.jsp").forward(request, response);
+			System.out.println(request.getParameter("Aid"));
+			List<Integer> li ;
+			li =bd.getAvailableSlots(Integer.parseInt(request.getParameter("Aid")));
+			request.setAttribute("li",li);
+			request.setAttribute("user", request.getParameter("Uid"));
+			request.setAttribute("arena", request.getParameter("Aid"));
+			request.getRequestDispatcher("BookingSlot.jsp").forward(request, response);
 		}
 	}
 	

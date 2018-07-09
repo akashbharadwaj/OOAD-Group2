@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
 		String submitType = request.getParameter("submit");
 		Login login = new Login(username, pass);
 		Customer c = customerDao.validateCustomer(login);
-		ArenaController a = new ArenaController();
+		ArenaDao a = new ArenaDaoImpl();
 		admin adm =  new admin();
 		String rs = "";
 		List<Arena> arenas;
