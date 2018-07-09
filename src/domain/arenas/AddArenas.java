@@ -36,11 +36,8 @@ public class AddArenas extends HttpServlet{
 			ps =conn.prepareStatement("insert into arenas (name,location) values(?,?)");
 			ps.setString(1, arenaName);
 			ps.setString(2, arenaLocation);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()){
-				//sm.send(rs.getString(1), message);
-				//System.out.println(rs.getString(1));
-			}
+			ps.executeQuery();
+			
 			conn.close();
 			request.setAttribute("message", "Email Sent");
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);

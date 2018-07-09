@@ -43,7 +43,7 @@ public class ArenaController extends HttpServlet {
 		//List<Arena> arenas;
 
 		//arenas = a.displayArenas();
-		
+		System.out.println(submitType.equals("add"));
 		if(submitType.equals("add")){
 			ar.setName(request.getParameter("name"));
 			ar.setLocation(request.getParameter("location"));

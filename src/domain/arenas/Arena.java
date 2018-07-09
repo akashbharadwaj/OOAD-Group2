@@ -9,16 +9,16 @@ public class Arena {
 	public String name;
 	public String location;
 	
-	
+	public Arena() {
+		// TODO Auto-generated constructor stub
+	}
 	public Arena(int arenaID, String name, String location) {
 		this.arenaID = arenaID;
 		this.name = name;
 		this.location = location;
 		
 	}
-	public Arena() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	public int getArenaID() {
 		return this.arenaID;
 	}

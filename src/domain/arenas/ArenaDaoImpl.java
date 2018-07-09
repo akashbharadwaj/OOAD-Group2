@@ -21,7 +21,7 @@ public class ArenaDaoImpl implements ArenaDao{
 		int status = 0;
 		try{
 			conn = db.getConnection();
-			ps =conn.prepareStatement("insert into arenas values(?,?)");
+			ps =conn.prepareStatement("insert into arenas (name,location) values(?,?)");
 			//ps.setString(1, a.setarenaID(arenaID));
 			ps.setString(1, a.getLocation());
 			ps.setString(2, a.getName());
@@ -39,8 +39,9 @@ public class ArenaDaoImpl implements ArenaDao{
 			conn = db.getConnection();
 			ps =conn.prepareStatement("delete from arenas where name = ? and location = ?");
 			//ps.setString(1, a.setarenaID(arenaID));
+			System.out.println(a.getLocation() +" "+ a.getName());
 			ps.setString(2, a.getLocation());
-			ps.setString(3, a.getName());
+			ps.setString(1, a.getName());
 			status = ps.executeUpdate();
 			conn.close();
 		}catch(Exception e){
