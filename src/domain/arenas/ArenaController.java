@@ -48,15 +48,21 @@ public class ArenaController extends HttpServlet {
 			ar.setName(request.getParameter("name"));
 			ar.setLocation(request.getParameter("location"));
 			
-			arenaDao.addArena(ar);
-			request.setAttribute("successMessage", "Arena Added Successfully!");
+			int status = arenaDao.addArena(ar);
+			if(status == 1)
+				request.setAttribute("failureMessage", "Arena Add Unsuccessful!");
+			else
+				request.setAttribute("successMessage", "Arena Added Successfully!");
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
 		}
 		else if(submitType.equals("delete")) {
 			ar.setName(request.getParameter("name"));
 			ar.setLocation(request.getParameter("location"));
-			arenaDao.deleteArena(ar);
-			request.setAttribute("successMessage", "Arena Deleted Successfully!");
+			int status = arenaDao.deleteArena(ar);
+			if(status == 1)
+				request.setAttribute("successMessage", "Arena Deleted Successfully!");
+			else
+				request.setAttribute("failureMessage", "Arena Delete Unsuccessful!");
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
 		}
 

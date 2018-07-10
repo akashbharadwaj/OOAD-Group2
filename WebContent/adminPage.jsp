@@ -13,8 +13,9 @@
 <a class="btn btn btn-danger" href="logout.jsp">logout</a>	
 
 	<br/>
-	<h3 style="text-align:center"> ${message} !!! </h3>
-	<h3 style="text-align:center"> ${successMessage} !!! </h3>
+	<h3 style="text-align:center"> ${message}  </h3>
+	<h3 style="text-align:center"> ${successMessage} </h3>
+	<h3 style="text-align:center"> ${failureMessage} </h3>
 	<h3 style="text-align:center"> Add Arena </h3>
 	<form class = "container" name="addArena" action="ArenaController" method="post"  >
 	<br>

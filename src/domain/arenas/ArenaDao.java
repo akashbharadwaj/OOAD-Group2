@@ -17,8 +17,8 @@ public interface ArenaDao {
 	 * @param c
 	 * @return
 	 */
-	public void addArena(Arena c);
-	public void deleteArena(Arena c);
+	public int addArena(Arena c);
+	public int deleteArena(Arena c);
 	
 	/*
 	 * Retrieve the Customer object from the database
