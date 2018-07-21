@@ -31,7 +31,15 @@ public class BookingController extends HttpServlet {
 	ArenaDao a = new ArenaDaoImpl();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		if(request.getParameter("show").equals("2")) {
+			bd.cancelBooking(request.getParameter("Bid"));
+			request.setAttribute("message1", "Booking cancelled succesfully");
+			List<Arena> arenas = a.displayArenas();
+			request.setAttribute("arenas",arenas);
+			request.setAttribute("user", request.getParameter("Uid"));
+			request.getRequestDispatcher("welcome.jsp").forward(request, response);
+			
+		}else
 		if(request.getParameter("show").equals("1")) {
 			List<Booking> bookings = bd.viewBooking(request.getParameter("Uid"));
 			request.setAttribute("bookings",bookings);

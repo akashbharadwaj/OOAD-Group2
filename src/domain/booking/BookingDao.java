@@ -66,7 +66,7 @@ public class BookingDao  {
 				
 			}
 			
-			ps =conn.prepareStatement("insert into booking values(?,?,?,?)");
+			ps =conn.prepareStatement("insert into booking (userId,arenaId, arenaName, slotTime) values(?,?,?,?)");
 			ps.setString(1, Uid);
 			ps.setString(2, Aid+"");
 			ps.setString(3, arenaName+"");
@@ -94,13 +94,30 @@ public class BookingDao  {
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				li.add(new Booking(rs.getString(1),Integer.parseInt(rs.getString(2)),rs.getString(3),Integer.parseInt(rs.getString(4))));
+				li.add(new Booking(Integer.parseInt(rs.getString(1)),rs.getString(2),Integer.parseInt(rs.getString(3)),rs.getString(4),Integer.parseInt(rs.getString(5))));
 			}
 			conn.close();
 		}catch(Exception e){
 			System.out.println(e);
 		}
 		return li;
+		
+	}
+	
+	public void cancelBooking( String Bid) {
+		Connection conn;
+		PreparedStatement ps;
+		DbManager db = new DbManager();		
+				
+		try{
+			conn = db.getConnection();
+			ps = conn.prepareStatement("delete from booking where bookingId = ?");
+			ps.setString(1, Bid);
+			boolean rs = ps.execute();
+			conn.close();
+		}catch(Exception e){
+			System.out.println(e);
+		}
 		
 	}
 	
