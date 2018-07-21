@@ -30,6 +30,7 @@
 	</div>
 
 	</form>
+	<h3 style="text-align:center"> Delete Arena </h3>
 	<form class = "container" name="deleteArena" action="ArenaController" method="post"  >
 	<br>
 	<div class = "form-group">
@@ -43,7 +44,24 @@
 	</div>
 
 	</form>
-	
+	<h3 style="text-align:center"> Update Arena </h3>
+	<form class = "container" name="updateArena" action="ArenaController" method="post"  >
+	<br>
+	<div class = "form-group">
+	Arena ID: <input class="form-control" name="arenaId" id="arenaId"></input><br>
+	</div>
+	<div class = "form-group">
+	Name: <input class="form-control" name="name" id="name"></input><br>
+	</div>
+	<div class = "form-group">
+	Location: <input class="form-control" name="location" id="location"></input><br>
+	</div>
+	<div class = "form-group">
+	<input class="btn btn btn-success" type="submit" name="submit" value="update"><br>
+	</div>
+
+	</form>
+		
 	<h3 style="text-align:center"> Send Notification </h3>
 	<form class = "container" name="pushmessage" action="admin" method="post"  >
 	<br>

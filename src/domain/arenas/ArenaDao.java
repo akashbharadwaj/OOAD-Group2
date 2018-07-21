@@ -19,7 +19,7 @@ public interface ArenaDao {
 	 */
 	public int addArena(Arena c);
 	public int deleteArena(Arena c);
-	
+	public int updateArena(Arena c);
 	/*
 	 * Retrieve the Customer object from the database
 	 */

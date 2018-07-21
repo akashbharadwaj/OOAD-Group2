@@ -76,6 +76,40 @@ public class ArenaDaoImpl implements ArenaDao{
 		return status;
 	}
 	@Override
+	public int updateArena(Arena a) {
+		int status = 0;
+		try{
+			conn = db.getConnection();
+			ps =conn.prepareStatement("Select * from arenas where id=?");
+			//ps.setString(2, a.getLocation());
+			//ps.setString(1, a.getName());
+			System.out.println(a.getArenaID());
+			ps.setInt(1, a.getArenaID());
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next())
+			{
+				status = 1;
+				//int id = rs.getInt(1);
+			}
+			if(status==1)
+			{
+				ps =conn.prepareStatement("update arenas set name = ?, location = ? where id=?");
+				ps.setInt(3, a.getArenaID());
+				ps.setString(2, a.getLocation());
+				ps.setString(1, a.getName());
+				System.out.println(a.getLocation() +" "+ a.getName());
+				status = ps.executeUpdate();
+				System.out.println(status);
+			}
+			
+			conn.close();
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return status;
+	}
+	@Override
 	public List<Arena> displayArenas() {
 		List<Arena> arena = new LinkedList<>();
 		

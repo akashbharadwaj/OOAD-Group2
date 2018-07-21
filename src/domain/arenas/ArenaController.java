@@ -44,9 +44,12 @@ public class ArenaController extends HttpServlet {
 
 		//arenas = a.displayArenas();
 		System.out.println(submitType.equals("add"));
+		
+		ar.setName(request.getParameter("name"));
+		ar.setLocation(request.getParameter("location"));
+		
 		if(submitType.equals("add")){
-			ar.setName(request.getParameter("name"));
-			ar.setLocation(request.getParameter("location"));
+			
 			
 			int status = arenaDao.addArena(ar);
 			if(status == 1)
@@ -56,8 +59,7 @@ public class ArenaController extends HttpServlet {
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
 		}
 		else if(submitType.equals("delete")) {
-			ar.setName(request.getParameter("name"));
-			ar.setLocation(request.getParameter("location"));
+			
 			int status = arenaDao.deleteArena(ar);
 			if(status == 1)
 				request.setAttribute("successMessage", "Arena Deleted Successfully!");
@@ -65,7 +67,17 @@ public class ArenaController extends HttpServlet {
 				request.setAttribute("failureMessage", "Arena Delete Unsuccessful!");
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
 		}
-
+		else if(submitType.equals("update")) {
+			ar.setArenaID(Integer.parseInt(request.getParameter("arenaId")));
+			int status = arenaDao.updateArena(ar);
+			
+			if(status == 1)
+				request.setAttribute("successMessage", "Arena updated Successfully!");
+			else
+				request.setAttribute("failureMessage", "Arena update Unsuccessful!");
+				
+			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
+		}
 	}
 
 }
