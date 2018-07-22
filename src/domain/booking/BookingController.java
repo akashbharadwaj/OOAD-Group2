@@ -32,6 +32,7 @@ public class BookingController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("show").equals("2")) {
+			
 			bd.cancelBooking(request.getParameter("Bid"));
 			request.setAttribute("message1", "Booking cancelled succesfully");
 			List<Arena> arenas = a.displayArenas();
