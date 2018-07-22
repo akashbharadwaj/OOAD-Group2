@@ -33,7 +33,7 @@
                     <td><c:out value="${arenas.arenaID}"/></td>
                     <td><c:out value="${arenas.name}"/></td>
                     <td><c:out value="${arenas.location}"/></td>
-                    <td><a href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Aid=<c:out value="${arenas.arenaID}"/>&show=0">Book</a></td>
+                    <td><a id = "${arenas.arenaID}" href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Aid=<c:out value="${arenas.arenaID}"/>&show=0">Book</a></td>
                 </tr>
             </c:forEach>
         </tbody>
