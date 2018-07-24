@@ -31,7 +31,7 @@
                     <td><c:out value="${booking.arenaId}"/></td>
                     <td><c:out value="${booking.arenaName}"/></td>
                     <td><c:out value="${booking.slotTime}:00 - ${booking.slotTime+1}:00"/></td>
-                    <td><a href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Bid=<c:out value="${booking.bookingId}"/>&show=2">Cancel</a></td>
+                    <td><a class = "btn btn-danger" href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Bid=<c:out value="${booking.bookingId}"/>&show=2">Cancel</a></td>
 				</tr>
             </c:forEach>
         </tbody>
