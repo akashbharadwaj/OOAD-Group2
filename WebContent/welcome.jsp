@@ -14,7 +14,7 @@
 <h1 style ="color:black;margin-left:30px;text-align: center">UREC PLAY</h1>
 
 <a class="btn btn btn-danger" href="logout.jsp">logout</a>
-<a class="btn btn btn-danger" href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&show=1">Booking</a>
+<a id = "history" class="btn btn btn-danger" href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&show=1">Booking</a>
 <h3 style="text-align:center"> ${message1} !!! </h3>
 <h3 align="center">Arenas to book</h3>
 
