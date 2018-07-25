@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 		String rs = "";
 		List<Arena> arenas;
 
-		arenas = a.displayArenas();
+		arenas = a.displayArenas("");
 		if(submitType.equals("login") && c!=null && c.getName()!=null){
 			request.setAttribute("user",c.getUsername());
 			request.setAttribute("message1", "Hello "+c.getName());

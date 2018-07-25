@@ -40,7 +40,7 @@ public class CancelBooking {
 		link = driver.findElement(By.id("history"));
 		link.click();
 		Thread.sleep(3000);
-		link = driver.findElement(By.id("16"));
+		link = driver.findElement(By.id("18"));
 		link.click();
 		Thread.sleep(3000);
 		Assert.assertEquals("Welcome Page", driver.getTitle());

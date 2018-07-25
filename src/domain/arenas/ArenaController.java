@@ -32,17 +32,7 @@ public class ArenaController extends HttpServlet {
 		
 		ArenaDao arenaDao = new ArenaDaoImpl();
 		Arena ar = new Arena();
-		//String username = request.getParameter("username");
-		//String pass = request.getParameter("password");
 		String submitType = request.getParameter("submit");
-		//Login login = new Login(username, pass);
-		//Customer c = customerDao.validateCustomer(login);
-		//ArenaController a = new ArenaController();
-		//admin adm =  new admin();
-		//String rs = "";
-		//List<Arena> arenas;
-
-		//arenas = a.displayArenas();
 		System.out.println(submitType.equals("add"));
 		
 		ar.setName(request.getParameter("name"));
@@ -77,6 +67,14 @@ public class ArenaController extends HttpServlet {
 				request.setAttribute("failureMessage", "Arena update Unsuccessful!");
 				
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
+		}
+		else if(submitType.equals("search")){
+			System.out.println("search"+request.getParameter("Uid")+request.getParameter("searchString"));
+			String searchString = request.getParameter("searchString");
+			List<Arena> arenas = arenaDao.displayArenas(searchString);
+			request.setAttribute("arenas",arenas);
+			request.setAttribute("user", request.getParameter("Uid"));
+			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		}
 	}
 
