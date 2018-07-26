@@ -14,19 +14,19 @@
 
 	<br/>
 	<h3 style="text-align:center"> ${message}  </h3>
-	<h3 style="text-align:center"> ${successMessage} </h3>
-	<h3 style="text-align:center"> ${failureMessage} </h3>
+	<h3 style="text-align:center" id="success"> ${successMessage} </h3>
+	<h3 style="text-align:center" id="failure"> ${failureMessage} </h3>
 	<h3 style="text-align:center"> Add Arena </h3>
 	<form class = "container" name="addArena" action="ArenaController" method="post"  >
 	<br>
 	<div class = "form-group">
-	Name: <input class="form-control" name="name" id="name"></input><br>
+	Name: <input class="form-control" name="name" id="addName"></input><br>
 	</div>
 	<div class = "form-group">
-	Location: <input class="form-control" name="location" id="location"></input><br>
+	Location: <input class="form-control" name="location" id="addLocation"></input><br>
 	</div>
 	<div class = "form-group">
-	<input class="btn btn btn-success" type="submit" name="submit" value="add"><br>
+	<input class="btn btn btn-success" type="submit" name="submit" value="add" id="add"><br>
 	</div>
 
 	</form>
@@ -34,13 +34,13 @@
 	<form class = "container" name="deleteArena" action="ArenaController" method="post"  >
 	<br>
 	<div class = "form-group">
-	Name: <input class="form-control" name="name" id="name"></input><br>
+	Name: <input class="form-control" name="name" id="deleteName"></input><br>
 	</div>
 	<div class = "form-group">
-	Location: <input class="form-control" name="location" id="location"></input><br>
+	Location: <input class="form-control" name="location" id="deleteLocation"></input><br>
 	</div>
 	<div class = "form-group">
-	<input class="btn btn btn-success" type="submit" name="submit" value="delete"><br>
+	<input class="btn btn btn-success" type="submit" name="submit" value="delete" id="delete"><br>
 	</div>
 
 	</form>
@@ -51,13 +51,13 @@
 	Arena ID: <input class="form-control" name="arenaId" id="arenaId"></input><br>
 	</div>
 	<div class = "form-group">
-	Name: <input class="form-control" name="name" id="name"></input><br>
+	Name: <input class="form-control" name="name" id="updateName"></input><br>
 	</div>
 	<div class = "form-group">
-	Location: <input class="form-control" name="location" id="location"></input><br>
+	Location: <input class="form-control" name="location" id="updateLocation"></input><br>
 	</div>
 	<div class = "form-group">
-	<input class="btn btn btn-success" type="submit" name="submit" value="update"><br>
+	<input class="btn btn btn-success" type="submit" name="submit" value="update" id="update"><br>
 	</div>
 
 	</form>

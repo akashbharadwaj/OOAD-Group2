@@ -44,7 +44,7 @@
 	<div class = "form-group">
 	Password: <input class="form-control" type="password" name="password" id="password"><br>
 	</div>
-	<input class="btn btn btn-success" type="submit" name="submit" value="login">
+	<input class="btn btn btn-success" type="submit" name="submit" value="login" id="login">
 	<a class="btn btn btn-success" href="register.jsp">registration</a>
 	
 	</form>

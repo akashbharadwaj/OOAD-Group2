@@ -94,7 +94,7 @@ public class ArenaDaoImpl implements ArenaDao{
 			}
 			if(status==1)
 			{
-				ps =conn.prepareStatement("update arenas set name = ?, location = ? where id=?");
+				ps =conn.prepareStatement("update arenas set name = ?,location = ? where id=?");
 				ps.setInt(3, a.getArenaID());
 				ps.setString(2, a.getLocation());
 				ps.setString(1, a.getName());

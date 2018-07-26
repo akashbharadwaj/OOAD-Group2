@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.DbManager;
+//import db.DbManager;
 
 /**
  * Servlet implementation class Login
@@ -22,9 +22,9 @@ import db.DbManager;
 public class ArenaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	static Connection conn;
-	static PreparedStatement ps;
-	DbManager db = new DbManager();
+	//static Connection conn;
+	//static PreparedStatement ps;
+	//DbManager db = new DbManager();
     public ArenaController() {}
     
 	@Override
@@ -72,9 +72,9 @@ public class ArenaController extends HttpServlet {
 			int status = arenaDao.updateArena(ar);
 			
 			if(status == 1)
-				request.setAttribute("successMessage", "Arena updated Successfully!");
+				request.setAttribute("successMessage", "Arena Updated Successfully!");
 			else
-				request.setAttribute("failureMessage", "Arena update Unsuccessful!");
+				request.setAttribute("failureMessage", "Arena Update Unsuccessful!");
 				
 			request.getRequestDispatcher("adminPage.jsp").forward(request, response);
 		}
