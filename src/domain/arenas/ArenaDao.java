@@ -25,7 +25,7 @@ public interface ArenaDao {
 	 */
 	//public Customer di(Login login);
 
-	public List<Arena> displayArenas();
+	public List<Arena> displayArenas(String s);
 	//public Customer getCustomer(String username, String pass); This method does not needed as we have the Login object
 
 	

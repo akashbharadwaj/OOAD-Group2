@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-4KIc2mnKfAA7VjirNLk2Sqp7jxFNq1q8+FhYGxhW2l52lt4HJsfksL+hjswHfbl/" crossorigin="anonymous">
-<title>Welcome Page</title>
+<title>Booking History</title>
 </head>
 <body>
 <h1 style ="color:black;margin-left:30px;text-align: center">UREC PLAY</h1>
@@ -31,7 +31,7 @@
                     <td><c:out value="${booking.arenaId}"/></td>
                     <td><c:out value="${booking.arenaName}"/></td>
                     <td><c:out value="${booking.slotTime}:00 - ${booking.slotTime+1}:00"/></td>
-                    <td><a href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Bid=<c:out value="${booking.bookingId}"/>&show=2">Cancel</a></td>
+                    <td><a id = "${booking.bookingId}" class = "btn btn-danger" href="${pageContext.request.contextPath}/BookingController?Uid=<c:out value="${user}"/>&Bid=<c:out value="${booking.bookingId}"/>&show=2">Cancel</a></td>
 				</tr>
             </c:forEach>
         </tbody>

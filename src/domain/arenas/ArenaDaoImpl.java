@@ -110,14 +110,17 @@ public class ArenaDaoImpl implements ArenaDao{
 		return status;
 	}
 	@Override
-	public List<Arena> displayArenas() {
+	public List<Arena> displayArenas(String s) {
 		List<Arena> arena = new LinkedList<>();
 		
 	try{
 		ResultSet rs;
 		
 		conn = db.getConnection();
-		ps =conn.prepareStatement("select * from arenas");
+		ps =conn.prepareStatement("select * from arenas where name like ? or location like ?");
+		ps.setString(2, "%"+s+"%");
+		ps.setString(1, "%"+s+"%");	
+		System.out.println(ps);
 		rs = ps.executeQuery();
 		while(rs.next())
 		{

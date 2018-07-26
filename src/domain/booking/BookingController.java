@@ -32,9 +32,10 @@ public class BookingController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("show").equals("2")) {
+			
 			bd.cancelBooking(request.getParameter("Bid"));
 			request.setAttribute("message1", "Booking cancelled succesfully");
-			List<Arena> arenas = a.displayArenas();
+			List<Arena> arenas = a.displayArenas("");
 			request.setAttribute("arenas",arenas);
 			request.setAttribute("user", request.getParameter("Uid"));
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
@@ -65,7 +66,7 @@ public class BookingController extends HttpServlet {
 		int Aid = Integer.parseInt(request.getParameter("Aid"));
 		bd.submitBooking(Aid, Uid, timeslot);
 		request.setAttribute("message1", "Congratulations!! Your Arena has been booked");
-		List<Arena> arenas = a.displayArenas();
+		List<Arena> arenas = a.displayArenas("");
 		request.setAttribute("arenas",arenas);
 		request.setAttribute("user", request.getParameter("Uid"));
 		request.getRequestDispatcher("welcome.jsp").forward(request, response);
