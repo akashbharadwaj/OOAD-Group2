@@ -1,8 +1,9 @@
+package testing;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestSelenium{
+public class AddDeleteUpdateArena{
 	WebDriver driver;
 	@Before
 	public void openWikipediaEnglishPage() throws InterruptedException{
@@ -33,8 +34,8 @@ public class TestSelenium{
 		WebElement add = driver.findElement(By.id("add"));
 		add.click();
 		WebElement msg =driver.findElement(By.id("success"));
-        	String successText=msg.getText();
-        	System.out.println(successText);
+        String successText=msg.getText();
+        System.out.println(successText);
 		Assert.assertEquals("ARENA ADDED SUCCESSFULLY!",successText );
 		Thread.sleep(10000);
 		
@@ -46,8 +47,8 @@ public class TestSelenium{
 		WebElement delete = driver.findElement(By.id("delete"));
 		delete.click();
 		WebElement msg1 =driver.findElement(By.id("success"));
-        	String successText1 = msg1.getText();
-        	System.out.println(successText1);
+        String successText1 = msg1.getText();
+        System.out.println(successText1);
 		Assert.assertEquals("ARENA DELETED SUCCESSFULLY!",successText1 );
 		Thread.sleep(10000);
 		
@@ -61,8 +62,8 @@ public class TestSelenium{
 		WebElement update = driver.findElement(By.id("update"));
 		update.click();
 		WebElement msg2 =driver.findElement(By.id("success"));
-        	String successText2 = msg2.getText();
-        	System.out.println(successText2);
+        String successText2 = msg2.getText();
+        System.out.println(successText2);
 		Assert.assertEquals("ARENA UPDATED SUCCESSFULLY!",successText2 );
 		Thread.sleep(10000);
 		
@@ -74,8 +75,8 @@ public class TestSelenium{
 		WebElement addUn = driver.findElement(By.id("add"));
 		addUn.click();
 		WebElement msgf =driver.findElement(By.id("failure"));
-        	String successTextf = msgf.getText();
-        	System.out.println(successTextf);
+        String successTextf = msgf.getText();
+        System.out.println(successTextf);
 		Assert.assertEquals("ARENA ADD UNSUCCESSFUL!",successTextf );
 		Thread.sleep(10000);
 		
@@ -88,8 +89,8 @@ public class TestSelenium{
 		WebElement deleteUn = driver.findElement(By.id("delete"));
 		deleteUn.click();
 		WebElement msgf1 =driver.findElement(By.id("failure"));
-        	String successTextf1 = msgf1.getText();
-        	System.out.println(successTextf1);
+        String successTextf1 = msgf1.getText();
+        System.out.println(successTextf1);
 		Assert.assertEquals("ARENA DELETE UNSUCCESSFUL!",successTextf1 );
 		Thread.sleep(10000);
 		
@@ -103,8 +104,8 @@ public class TestSelenium{
 		WebElement updateUn = driver.findElement(By.id("update"));
 		updateUn.click();
 		WebElement msgf2 = driver.findElement(By.id("failure"));
-        	String successTextf2 = msgf2.getText();
-        	System.out.println(successTextf2);
+        String successTextf2 = msgf2.getText();
+        System.out.println(successTextf2);
 		Assert.assertEquals("ARENA UPDATE UNSUCCESSFUL!",successTextf2 );
 		Thread.sleep(10000);
 	}
