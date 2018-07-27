@@ -44,11 +44,9 @@
 	<div class = "form-group">
 	Password: <input class="form-control" type="password" name="password" id="password"><br>
 	</div>
-<<<<<<< HEAD
-	<input class="btn btn btn-success" type="submit" name="submit" value="login" id="login">
-=======
+
 	<input class="btn btn btn-success" type="submit" name="submit" value="login" id ="login">
->>>>>>> 23c89a22ded83ce18f71a9da83adac3ab2bb737f
+
 	<a class="btn btn btn-success" href="register.jsp">registration</a>
 	
 	</form>
